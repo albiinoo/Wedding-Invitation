@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Undangan pernikahan digital Mia Lestari & Pepen"
+    />
+    <title>Mia & Pepen | Undangan Pernikahan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blush: '#f6d7d2',
+              rose: '#d98f88',
+              plum: '#5b3b46',
+              cacao: '#7d5a4d',
+              cream: '#fffaf8',
+              gold: '#d9b77a',
+              warm: '#f4ece7'
+            },
+            fontFamily: {
+              display: ['"Playfair Display"', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif']
+            },
+            boxShadow: {
+              soft: '0 18px 45px rgba(80, 44, 44, 0.12)'
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-cream: #fffaf8;
+        --bg-warm: #f8f0ee;
+        --rose: #d98f88;
+        --rose-deep: #b16963;
+        --plum: #5b3b46;
+        --gold: #d9b77a;
+        --text: #382a2d;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(180deg, #fffaf8 0%, #f9f1ee 35%, #fffaf7 100%);
+        color: var(--text);
+      }
+
+      .hero-pattern {
+        background-image:
+          radial-gradient(circle at top, rgba(217, 143, 136, 0.18), transparent 40%),
+          radial-gradient(circle at bottom right, rgba(217, 183, 122, 0.15), transparent 30%);
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .section-title {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 0.04em;
+      }
+
+      .ornament {
+        position: relative;
+      }
+
+      .ornament::before,
+      .ornament::after {
+        content: '❦';
+        color: rgba(185, 125, 110, 0.6);
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .ornament::before {
+        left: -1.2rem;
+      }
+
+      .ornament::after {
+        right: -1.2rem;
+      }
+
+      .fade-up {
+        animation: fadeUp 0.8s ease both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .countdown-box {
+        min-width: 70px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.7);
+        border: 1px solid rgba(91, 59, 70, 0.08);
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased">
+    <!-- GANTI FILE LOKAL: audio pengiring undangan, ganti src="audio.mp3" dengan file audio lokal Anda -->
+    <audio id="bg-music" src="audio.mp3" loop preload="auto"></audio>
+
+    <button
+      id="music-toggle"
+      aria-label="Putar musik latar"
+      class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#5b3b46] text-white shadow-soft transition hover:scale-105"
+      type="button"
+    >
+      <span id="music-icon">♫</span>
+    </button>
+
+    <header class="hero-pattern relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.5),_transparent_60%)]"></div>
+      <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+        <nav class="mb-8 flex items-center justify-center">
+          <div class="glass rounded-full border border-white/50 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#5b3b46] shadow-sm">
+            Wedding Invitation
+          </div>
+        </nav>
+
+        <section class="flex min-h-[80vh] items-center justify-center text-center">
+          <div class="fade-up max-w-3xl">
+            <p class="mb-5 text-sm uppercase tracking-[0.38em] text-[#7d5a4d]">
+              The Wedding of
+            </p>
+            <div class="mb-6 flex items-center justify-center gap-3 text-[#5b3b46] opacity-80">
+              <span class="text-3xl">❦</span>
+              <span class="font-medium uppercase tracking-[0.4em] text-xs">Mia & Pepen</span>
+              <span class="text-3xl">❦</span>
+            </div>
+            <h1 class="mb-5 font-display text-5xl leading-none text-[#3b2b30] sm:text-6xl lg:text-7xl">
+              Mia Lestari <span class="mx-2 text-[#b16963]">&</span> Pepen
+            </h1>
+            <p class="mx-auto mb-8 max-w-xl text-sm leading-7 text-[#5f474c] sm:text-base">
+              Dengan memohon ridha Allah SWT, kami mengundang Bapak/Ibu/Saudara/i
+              serta seluruh keluarga untuk hadir di acara pernikahan kami.
+            </p>
+
+            <p class="mb-8 text-xl font-medium text-[#5b3b46]">
+              Kepada Yth. Bapak/Ibu/Saudara/i: <span id="guest-name" class="font-semibold text-[#b16963]">Tamu Undangan</span>
+            </p>
+
+            <button
+              id="open-invitation"
+              class="inline-flex items-center justify-center rounded-full bg-[#5b3b46] px-7 py-3 text-sm font-semibold text-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-[#4d303b]"
+              type="button"
+            >
+              Buka Undangan
+            </button>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+      <section class="py-12">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">Save the Date</p>
+          <h2 class="section-title ornament relative inline-block text-4xl text-[#4d303b]">Countdown</h2>
+        </div>
+
+        <div class="mx-auto grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
+          <div class="countdown-box p-4 text-center shadow-sm">
+            <div id="days" class="font-display text-4xl text-[#5b3b46]">00</div>
+            <div class="mt-2 text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Hari</div>
+          </div>
+          <div class="countdown-box p-4 text-center shadow-sm">
+            <div id="hours" class="font-display text-4xl text-[#5b3b46]">00</div>
+            <div class="mt-2 text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Jam</div>
+          </div>
+          <div class="countdown-box p-4 text-center shadow-sm">
+            <div id="minutes" class="font-display text-4xl text-[#5b3b46]">00</div>
+            <div class="mt-2 text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Menit</div>
+          </div>
+          <div class="countdown-box p-4 text-center shadow-sm">
+            <div id="seconds" class="font-display text-4xl text-[#5b3b46]">00</div>
+            <div class="mt-2 text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Detik</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">Our Story</p>
+          <h2 class="section-title ornament relative inline-block text-4xl text-[#4d303b]">Profil Mempelai</h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <article class="glass rounded-[2rem] border border-[#f0d9d4] p-5 shadow-soft sm:p-6">
+            <div class="mb-5 overflow-hidden rounded-[1.5rem]">
+              <img
+                src="1.jpeg"
+                alt="Mia Lestari"
+                class="h-80 w-full object-cover"
+              />
+            </div>
+            <div class="text-center">
+              <h3 class="font-display text-4xl text-[#4d303b]">Mia Lestari</h3>
+              <p class="mt-2 text-sm uppercase tracking-[0.25em] text-[#8a6a5a]">Mempelai Wanita</p>
+              <p class="mt-6 leading-7 text-[#5a3f45]">
+                Anak pertama dari pasangan Bpk. Asep Joni dan Ibu Sumiati.
+              </p>
+            </div>
+          </article>
+
+          <article class="glass rounded-[2rem] border border-[#f0d9d4] p-5 shadow-soft sm:p-6">
+            <div class="mb-5 overflow-hidden rounded-[1.5rem]">
+              <img
+                src="2.jpeg"
+                alt="Pepen"
+                class="h-80 w-full object-cover"
+              />
+            </div>
+            <div class="text-center">
+              <h3 class="font-display text-4xl text-[#4d303b]">Pepen</h3>
+              <p class="mt-2 text-sm uppercase tracking-[0.25em] text-[#8a6a5a]">Mempelai Pria</p>
+              <p class="mt-6 leading-7 text-[#5a3f45]">
+                Anak ke-8 dari pasangan Bpk. (Alm) H. Ahid dan Ibu (Almh) Hj. Ucah.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="glass rounded-[2rem] border border-[#f0d9d4] p-6 shadow-soft sm:p-8">
+            <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">Event Details</p>
+            <h2 class="section-title text-4xl text-[#4d303b]">Detail Acara</h2>
+
+            <div class="mt-8 space-y-5">
+              <div class="flex items-start gap-4 border-b border-[#efd8d4] pb-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#f9e7e3] text-lg">📅</div>
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Tanggal</p>
+                  <p class="mt-1 text-lg font-semibold text-[#5b3b46]">Minggu, 10 Januari 2027</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 border-b border-[#efd8d4] pb-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#f9e7e3] text-lg">⏰</div>
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Waktu</p>
+                  <p class="mt-1 text-lg font-semibold text-[#5b3b46]">10.00 WIB s/d selesai</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#f9e7e3] text-lg">📍</div>
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-[#7d5a4d]">Lokasi</p>
+                  <p class="mt-1 text-lg font-semibold text-[#5b3b46]">Gedung / Kediaman Mempelai</p>
+                  <p class="mt-2 text-sm leading-6 text-[#5b3b46]">
+                    Jl. Contoh Alamat, Kota Bandung, Jawa Barat 40111
+                  </p>
+                  <a
+                    href="https://www.google.com/maps?q=Gedung+Kediaman+Mempelai+Bandung&output=embed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-4 inline-flex rounded-full border border-[#5b3b46] px-5 py-2 text-sm font-medium text-[#5b3b46] transition hover:bg-[#5b3b46] hover:text-white"
+                  >
+                    Buka Google Maps
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-[2rem] border border-[#f0d9d4] p-6 shadow-soft sm:p-8">
+            <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">Location Map</p>
+            <h3 class="section-title text-3xl text-[#4d303b]">Peta Lokasi</h3>
+            <div class="mt-6 overflow-hidden rounded-[1.5rem] border border-[#ead5d0]">
+              <iframe
+                src="https://www.google.com/maps?q=Gedung+Kediaman+Mempelai+Bandung&output=embed"
+                width="100%"
+                height="320"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Google Maps lokasi acara"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">Moments</p>
+          <h2 class="section-title ornament relative inline-block text-4xl text-[#4d303b]">Galeri Foto</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div class="overflow-hidden rounded-[1.5rem] shadow-sm">
+            <img src="1.jpeg" alt="Galeri 1" class="h-52 w-full object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[1.5rem] shadow-sm md:mt-8">
+            <img src="2.jpeg" alt="Galeri 2" class="h-52 w-full object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[1.5rem] shadow-sm">
+            <img src="3.jpeg" alt="Galeri 3" class="h-52 w-full object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[1.5rem] shadow-sm md:mt-8">
+            <img src="4.jpeg" alt="Galeri 4" class="h-52 w-full object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[1.5rem] shadow-sm">
+            <img src="5.jpeg" alt="Galeri 5" class="h-52 w-full object-cover transition duration-300 hover:scale-105" />
+          </div>
+          <div class="overflow-hidden rounded-[1.5rem] shadow-sm md:mt-8">
+            <img src="6.jpeg" alt="Galeri 6" class="h-52 w-full object-cover transition duration-300 hover:scale-105" />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">Gift</p>
+          <h2 class="section-title ornament relative inline-block text-4xl text-[#4d303b]">Amplop Digital</h2>
+        </div>
+
+        <div class="mx-auto max-w-xl">
+          <div class="glass rounded-[2rem] border border-[#f0d9d4] p-6 shadow-soft text-center sm:p-8">
+            <img
+              src="qris.jpeg"
+              alt="QRIS payment"
+              class="mx-auto mb-5 h-72 w-72 rounded-2xl border border-[#f0d9d4] bg-white p-3 object-cover shadow-sm"
+            />
+            <p class="text-sm leading-6 text-[#5b3b46]">
+              Silakan kirimkan hadiah melalui QRIS di atas untuk membantu memulai langkah baru kami.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs uppercase tracking-[0.3em] text-[#8a6a5a]">RSVP</p>
+          <h2 class="section-title ornament relative inline-block text-4xl text-[#4d303b]">Konfirmasi Kehadiran</h2>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <form id="rsvp-form" class="glass rounded-[2rem] border border-[#f0d9d4] p-6 shadow-soft sm:p-8">
+            <div class="space-y-5">
+              <div>
+                <label for="guest-input" class="mb-2 block text-sm font-medium text-[#5b3b46]">Nama</label>
+                <input id="guest-input" type="text" placeholder="Nama Anda" class="w-full rounded-2xl border border-[#edd7d1] bg-white px-4 py-3 text-[#362a2e] outline-none transition focus:border-[#b16963]" required />
+              </div>
+
+              <div>
+                <label for="attendance" class="mb-2 block text-sm font-medium text-[#5b3b46]">Konfirmasi Kehadiran</label>
+                <select id="attendance" class="w-full rounded-2xl border border-[#edd7d1] bg-white px-4 py-3 text-[#362a2e] outline-none transition focus:border-[#b16963]" required>
+                  <option value="">Pilih</option>
+                  <option value="Hadir">Hadir</option>
+                  <option value="Tidak Hadir">Tidak Hadir</option>
+                  <option value="Mungkin">Mungkin</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="mb-2 block text-sm font-medium text-[#5b3b46]">Pesan Ucapan</label>
+                <textarea id="message" rows="4" placeholder="Tulis doa dan ucapan selamat" class="w-full rounded-2xl border border-[#edd7d1] bg-white px-4 py-3 text-[#362a2e] outline-none transition focus:border-[#b16963]"></textarea>
+              </div>
+
+              <button type="submit" class="w-full rounded-full bg-[#5b3b46] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#4d303b]">
+                Kirim Ucapan
+              </button>
+            </div>
+          </form>
+
+          <div class="glass rounded-[2rem] border border-[#f0d9d4] p-6 shadow-soft sm:p-8">
+            <p class="mb-4 text-xs uppercase tracking-[0.25em] text-[#8a6a5a]">Ucapan & Doa</p>
+            <div id="messages-list" class="space-y-4"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-4 pb-14 pt-4 text-center text-sm text-[#7a5f60]">
+      <p>“Semoga Allah SWT meridhoi langkah kami.”</p>
+    </footer>
+
+    <script>
+      const targetDate = new Date('2027-01-10T10:00:00+07:00');
+      const countdownEls = {
+        days: document.getElementById('days'),
+        hours: document.getElementById('hours'),
+        minutes: document.getElementById('minutes'),
+        seconds: document.getElementById('seconds')
+      };
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          countdownEls.days.textContent = '00';
+          countdownEls.hours.textContent = '00';
+          countdownEls.minutes.textContent = '00';
+          countdownEls.seconds.textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        countdownEls.days.textContent = String(days).padStart(2, '0');
+        countdownEls.hours.textContent = String(hours).padStart(2, '0');
+        countdownEls.minutes.textContent = String(minutes).padStart(2, '0');
+        countdownEls.seconds.textContent = String(seconds).padStart(2, '0');
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      const params = new URLSearchParams(window.location.search);
+      const guestName = params.get('to');
+      const displayName = guestName && guestName.trim() ? guestName.trim() : 'Tamu Undangan';
+      document.getElementById('guest-name').textContent = displayName;
+      document.getElementById('guest-input').value = displayName === 'Tamu Undangan' ? '' : displayName;
+
+      document.getElementById('open-invitation').addEventListener('click', () => {
+        document.getElementById('content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      const audio = document.getElementById('bg-music');
+      const musicToggle = document.getElementById('music-toggle');
+      const musicIcon = document.getElementById('music-icon');
+
+      async function toggleMusic() {
+        if (audio.paused) {
+          try {
+            await audio.play();
+            musicIcon.textContent = '❚❚';
+          } catch (error) {
+            console.log('Autoplay diblokir oleh browser, klik lagi untuk memutar.', error);
+          }
+        } else {
+          audio.pause();
+          musicIcon.textContent = '♫';
+        }
+      }
+
+      window.addEventListener('load', async () => {
+        try {
+          await audio.play();
+          musicIcon.textContent = '❚❚';
+        } catch (error) {
+          console.log('Autoplay diblokir hingga ada interaksi user.', error);
+          musicIcon.textContent = '♫';
+        }
+      });
+
+      musicToggle.addEventListener('click', toggleMusic);
+
+      const RSVP_KEY = 'wedding-rsvp-messages';
+      const messagesList = document.getElementById('messages-list');
+
+      function renderMessages() {
+        const saved = JSON.parse(localStorage.getItem(RSVP_KEY) || '[]');
+
+        if (!saved.length) {
+          messagesList.innerHTML = `
+            <div class="rounded-[1.5rem] border border-dashed border-[#e7c5c0] bg-[#fff9f7] p-4 text-sm text-[#6f535b]">
+              Belum ada ucapan yang dikirim. Jadilah yang pertama memberi doa terbaik.
+            </div>
+          `;
+          return;
+        }
+
+        messagesList.innerHTML = saved
+          .slice()
+          .reverse()
+          .map(
+            (item) => `
+              <div class="rounded-[1.5rem] border border-[#f2d8d3] bg-[#fffaf8] p-4 shadow-sm">
+                <div class="mb-2 flex items-center justify-between gap-3">
+                  <p class="font-semibold text-[#4d303b]">${item.name}</p>
+                  <span class="rounded-full bg-[#f8e6df] px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-[#7d5a4d]">${item.attendance}</span>
+                </div>
+                <p class="text-sm leading-6 text-[#5d4a4d]">${item.message || 'Doa dan ucapan selamat.'}</p>
+              </div>
+            `
+          )
+          .join('');
+      }
+
+      document.getElementById('rsvp-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('guest-input').value.trim();
+        const attendance = document.getElementById('attendance').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !attendance) {
+          alert('Mohon isi nama dan konfirmasi kehadiran.');
+          return;
+        }
+
+        const saved = JSON.parse(localStorage.getItem(RSVP_KEY) || '[]');
+        const newEntry = { name, attendance, message };
+        const updated = [...saved, newEntry];
+        localStorage.setItem(RSVP_KEY, JSON.stringify(updated));
+
+        event.target.reset();
+        document.getElementById('guest-input').value = displayName === 'Tamu Undangan' ? '' : displayName;
+        renderMessages();
+      });
+
+      renderMessages();
+    </script>
+  </body>
+</html>
